@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block corpo%}
+<h1>Geek Grades</h1>
+<a href="/logar">Login</a>
+<a href="/cadastro">Cadastrar</a>
+<a href="/perfil">Perfil</a>
+{%block logout%}
+{% if current_user.is_authenticated%}
+    <a href="/logout">Sair</a>
+{%endif%}
+{%endblock%}
+{%endblock%}
