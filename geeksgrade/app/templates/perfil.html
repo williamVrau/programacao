@@ -3,5 +3,6 @@
 {%block corpo%}
 {{current_user.nome}}<br>
 <img src="{{url_for('static',filename=current_user.caminho_da_foto)}}" width="10%" height="10%">
+<a href="/editar_perfil">editar perfil</a>
 
 {%endblock%}

@@ -29,9 +29,10 @@ class AtualizarUsuarioForm(FlaskForm):
     senha = PasswordField("Senha", validators=[InputRequired(message="Campo obrigatório.")])
     senha_verificadora = PasswordField("Digite novamente sua senha",validators=[InputRequired(message="Campo obrigatório"),
                                                                                 EqualTo('senha')])
-    submit = SubmitField("Registrar")
+    submit = SubmitField("Salvar alteraçao")
 
-class CadastrarAvaliacaoForm(FlaskForm):
-    nota = SelectField("Nota", choices=['0','1','2','3','4','5','6','7','8','9','10'], validators=InputRequired(message='Campo obrigatório.'))
+class CadastrarNotaForm(FlaskForm):
+    nota = SelectField("Nota", choices=[('0',0),('1',1),('2',4),('3',3),('4',4),('5',5),('6',6),('7',7),('8',8),('9',9),('10',10)], validators=InputRequired(message='Campo obrigatório.'))
     comentario = TextAreaField("Comentário")
+    submit = SubmitField("Postar")
 

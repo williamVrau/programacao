@@ -2,16 +2,20 @@ from app import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class AvaliacaoModel(db.Model):
+class NotaModel(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement='ignore_fk')
     nota = db.Column(db.Integer)
-    comentario = db.Column(db.Text, nullable=True)
+    comentario = db.column(db.String)
+    nome_jogo = db.Column(db.String, nullable = True)
     usuario_id = db.Column(db.String, db.ForeignKey('user_model.email'))
     #usuario = db.relationship('UserModel', back_populates='avaliacao')
 
-    def __init__(self, nota, comentario):
+    def __init__(self, nota, nome_jogo):
         self.nota = nota
-        self.cometario = comentario
+        self.nome_jogo = nome_jogo
+
+    def comentar(self,comentario):
+        self.comentario = comentario
 
         
 
@@ -21,7 +25,7 @@ class UserModel(UserMixin, db.Model):
     data_nascimento = db.Column(db.Date, index=True)
     caminho_da_foto = db.Column(db.String, nullable = True)
     senha_hash = db.Column(db.String(128))
-    #avalicao = db.relationship('AvaliacaoMode', back_populates='usuario')
+    #  avalicao = db.relationship('NotaModel', back_populates='usuario')
 
     
     def __init__(self, email, nome, data_nascimento, caminho_da_foto, senha):

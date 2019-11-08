@@ -6,5 +6,5 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///geekgrades.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    UPLOAD_FOLDER = '/home/aluno/geeksgrade/app/static/images'
+    UPLOAD_FOLDER = '/home/aluno/Downloads/programacao-master/geeksgrade/app/static/images/'
     #Mudar toda vez
